@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "locale": { "language": "es_ES.UTF-8", "timezone": "America/Bogota", "keymap": "es" },
+  "disk": { "device": "/dev/sda", "confirm_erase": "/dev/sda", "swap_mib": 2048 },
+  "bootloader": { "target": "auto" },
+  "hostname": "emancipation-pc",
+  "user": { "name": "usuario", "full_name": "Usuario", "password": "cambia-esto", "admin": true, "autologin": false },
+  "desktop": { "default": "sway" },
+  "options": { "dry_run": true, "log_path": "/tmp/emancipation-dry-run.log" }
+}
