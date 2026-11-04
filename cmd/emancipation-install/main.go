@@ -133,6 +133,7 @@ func run(args []string, stdin io.Reader, stdout, stderr io.Writer) int {
 				fw = "uefi"
 			}
 			em.Log("info", s.ID, fmt.Sprintf("configuración válida; firmware %s, arranque %s, escritorio %s", fw, target, cfg.Desktop.Default))
+			preflightWarn(em, cfg, s.ID)
 		case "partition":
 			for _, p := range parts {
 				em.Log("info", s.ID, "[dry-run] "+describe(p))
