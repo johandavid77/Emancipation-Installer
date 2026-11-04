@@ -124,3 +124,16 @@ El motor escribe cada línea de log en `log_path` y hace `fsync` en cada una,
 de modo que un cuelgue o un reinicio no pierda el final. Como en el live
 `/var/log` vive en RAM, al fallar la interfaz debe ofrecer copiar ese archivo
 a otro medio. El motor imprime la ruta exacta en el evento `error`.
+
+## Ampliaciones (3 nov 2026)
+
+- Por seguridad el motor solo describe lo que haría (dry-run) salvo que se le
+  pase `--execute`. La configuración sola nunca basta para instalar de verdad.
+  `--dry-run` y `--execute` a la vez son incompatibles (código de salida 2).
+- `--stop-after <paso>` detiene el plan después de ese paso; sirve para probar
+  los primeros pasos mientras los demás no existen.
+- En modo real, si el plan incluye pasos aún no implementados, el motor se
+  niega antes de tocar nada (error `E_INTERNAL`, código de salida 1). También
+  exige root, y las comprobaciones previas pasan de avisos a errores fatales.
+- Una comprobación previa que detecta configuración inválida sale con código 2;
+  las demás, con 1.
