@@ -37,39 +37,6 @@ func TestQuote(t *testing.T) {
 	}
 }
 
-func TestPartitionCmdsUEFI(t *testing.T) {
-	parts := Layout("/dev/sda", 2048, "uefi")
-	iguales(t, strs(PartitionCmds("/dev/sda", parts)), []string{
-		"wipefs --all --force /dev/sda",
-		"sgdisk --zap-all /dev/sda",
-		"sgdisk -n 1:0:+512M -t 1:ef00 -c 1:ESP /dev/sda",
-		"sgdisk -n 2:0:+2048M -t 2:8200 -c 2:swap /dev/sda",
-		"sgdisk -n 3:0:0 -t 3:8300 -c 3:root /dev/sda",
-		"partprobe /dev/sda",
-		"udevadm settle",
-	})
-}
-
-func TestPartitionCmdsBIOS(t *testing.T) {
-	parts := Layout("/dev/vda", 0, "bios")
-	got := strs(PartitionCmds("/dev/vda", parts))
-	for _, want := range []string{
-		"sgdisk -n 1:0:+1M -t 1:ef02 -c 1:bios_grub /dev/vda",
-		"sgdisk -n 2:0:+512M -t 2:ef00 -c 2:ESP /dev/vda",
-		"sgdisk -n 3:0:0 -t 3:8300 -c 3:root /dev/vda",
-	} {
-		encontrado := false
-		for _, g := range got {
-			if g == want {
-				encontrado = true
-			}
-		}
-		if !encontrado {
-			t.Errorf("falta %q en:\n%s", want, strings.Join(got, "\n"))
-		}
-	}
-}
-
 func TestFormatCmds(t *testing.T) {
 	parts := Layout("/dev/sda", 2048, "uefi")
 	iguales(t, strs(FormatCmds(parts)), []string{

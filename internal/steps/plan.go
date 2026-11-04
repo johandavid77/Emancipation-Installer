@@ -2,7 +2,6 @@ package steps
 
 import (
 	"errors"
-	"fmt"
 	"path"
 	"strings"
 )
@@ -14,7 +13,9 @@ const BtrfsOpts = "discard=async,space_cache=v2"
 // construyen comandos; quien los ejecuta (el ejecutor real o el dry-run) es
 // otra pieza, así los pasos se prueban sin privilegios ni discos.
 type Cmd struct {
-	Args []string
+	Args       []string
+	Stdin      string // entrada estándar; vacío = ninguna
+	QuietStdin bool   // no registrar la entrada en el log (contraseñas)
 }
 
 // String devuelve el comando como se escribiría en una shell.
@@ -40,23 +41,6 @@ func quote(s string) string {
 		}
 	}
 	return s
-}
-
-// PartitionCmds borra el disco y crea la tabla GPT con las particiones de Layout.
-func PartitionCmds(disk string, parts []Part) []Cmd {
-	cmds := []Cmd{
-		cmd("wipefs", "--all", "--force", disk),
-		cmd("sgdisk", "--zap-all", disk),
-	}
-	for _, p := range parts {
-		end := "0"
-		if p.SizeMiB > 0 {
-			end = fmt.Sprintf("+%dM", p.SizeMiB)
-		}
-		n := fmt.Sprint(p.Num)
-		cmds = append(cmds, cmd("sgdisk", "-n", n+":0:"+end, "-t", n+":"+p.Type, "-c", n+":"+p.Name, disk))
-	}
-	return append(cmds, cmd("partprobe", disk), cmd("udevadm", "settle"))
 }
 
 // FormatCmds crea los sistemas de archivos y el swap de cada partición.
