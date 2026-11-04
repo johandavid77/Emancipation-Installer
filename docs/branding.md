@@ -107,3 +107,20 @@ welcome_title = "Welcome to Emancipation-OS"
   soporta. Muestra `logo.txt` si existe, o el nombre en texto si no. Ignora
   imágenes, diapositivas y capturas.
 - El motor no usa el branding salvo para el título del log.
+
+## Ampliaciones (3 nov 2026)
+
+- Los nombres de archivo son libres: manda el manifiesto. El árbol de arriba
+  solo muestra los nombres por defecto.
+- Formatos: el logo y las capturas pueden ser SVG, PNG o JPG; los fondos y las
+  diapositivas, PNG o JPG. La TUI ignora todas las imágenes.
+- Fondo por escritorio: `[desktop.<id>] wallpaper` sustituye a
+  `[assets] wallpaper`. En la pantalla "Elige tu escritorio" la GUI cambia el
+  fondo al elegir. Los fondos deben admitir una capa oscura semitransparente
+  encima, porque el contenido se dibuja sobre ellos.
+- Capturas de escritorio: cualquier proporción; la GUI las ajusta dentro de la
+  tarjeta sin recortarlas.
+- `palette.stripe`: lista opcional de colores para la franja superior, como la
+  de las diapositivas. `palette.border` es el color de los bordes de tarjeta.
+- Diapositivas: la imagen ya trae su texto. `title` y `text` son su equivalente
+  en texto: la TUI los muestra en rotación y la GUI no los dibuja encima.

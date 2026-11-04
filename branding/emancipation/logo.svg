@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <!-- Gradiente de acento para la melena / detalles -->
+    <linearGradient id="emancipateGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2ecc71" />
+      <stop offset="50%" stop-color="#f1c40f" />
+      <stop offset="100%" stop-color="#e74c3c" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Isotipo: Cabeza de León estilizada + Letra R integrada -->
+  <g id="lion-emblem" transform="translate(10, -5)" filter="url(#shadow)">
+    <!-- Melena superior con acentos de color -->
+    <path d="M 220 70 C 260 50 310 55 350 85 C 320 90 280 95 250 115 Z" fill="#2ecc71" />
+    <path d="M 330 75 C 380 90 410 130 420 175 C 390 150 350 135 310 135 Z" fill="#f1c40f" />
+    <path d="M 400 150 C 435 190 440 240 430 285 C 410 245 380 220 345 205 Z" fill="#e74c3c" />
+
+    <!-- Estructura base de la letra R / Melena geométrica -->
+    <path d="M 255 105 C 330 95 385 130 385 195 C 385 245 350 275 295 285 L 380 375 L 315 375 L 245 295 L 235 295 L 235 375 L 180 375 L 180 120 Z" fill="#E2E8F0" stroke="#1E293B" stroke-width="6" stroke-linejoin="round" />
+    <!-- Hueco interno de la R -->
+    <path d="M 235 155 L 275 155 C 315 155 330 175 330 200 C 330 225 315 245 275 245 L 235 245 Z" fill="#0F172A" />
+
+    <!-- Perfil del león (hocico y rostro angular) -->
+    <path d="M 180 180 L 130 230 L 85 250 L 105 285 L 155 270 L 140 310 L 165 315 L 180 350 L 220 385 L 200 320 L 210 260 Z" fill="#F8FAFC" stroke="#1E293B" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+    
+    <!-- Ojo felino / rasgos angulares -->
+    <polygon points="145,235 175,225 160,245" fill="#0EA5E9" />
+    <!-- Detalle de sombra en la mandíbula -->
+    <path d="M 105 285 L 130 295 L 155 270 Z" fill="#94A3B8" />
+
+    <!-- Cadena rota (Emancipación) -->
+    <g transform="translate(260, 245) rotate(42)">
+      <!-- Eslabón 1 -->
+      <rect x="0" y="0" width="70" height="28" rx="14" fill="none" stroke="#CBD5E1" stroke-width="8" />
+      <!-- Eslabón roto 2 -->
+      <path d="M 45 40 L 85 40 A 14 14 0 0 1 99 54 L 99 64" fill="none" stroke="#CBD5E1" stroke-width="8" stroke-linecap="round" />
+      <path d="M 99 82 L 99 88 A 14 14 0 0 1 85 102 L 45 102 A 14 14 0 0 1 31 88 L 31 54" fill="none" stroke="#CBD5E1" stroke-width="8" stroke-linecap="round" />
+    </g>
+  </g>
+
+  <!-- Tipografía centrada en una sola línea -->
+  <text x="250" y="445" 
+        font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'DejaVu Sans', sans-serif" 
+        font-weight="900" 
+        font-size="31" 
+        fill="#FFFFFF" 
+        text-anchor="middle" 
+        letter-spacing="5">
+    EMANCIPATION-OS
+  </text>
+  
+  <!-- Sub-barra decorativa tricolor -->
+  <rect x="150" y="465" width="66" height="4" fill="#2ecc71" rx="2"/>
+  <rect x="217" y="465" width="66" height="4" fill="#f1c40f" rx="2"/>
+  <rect x="284" y="465" width="66" height="4" fill="#e74c3c" rx="2"/>
+</svg>

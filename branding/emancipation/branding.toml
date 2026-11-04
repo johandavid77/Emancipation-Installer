@@ -1,0 +1,79 @@
+[identity]
+name    = "Emancipation-OS"
+version = "0.1.8"
+tagline = "Libertad, soberanía digital y alto rendimiento artesanal"
+
+[palette]
+background = "#0b0f17"
+surface    = "#121824"
+border     = "#334155"
+accent     = "#2ecc71"
+text       = "#ffffff"
+text_muted = "#cbd5e1"
+success    = "#2ecc71"
+warning    = "#f1c40f"
+error      = "#e74c3c"
+stripe     = ["#2ecc71", "#f1c40f", "#e74c3c"]
+
+[fonts]
+ui   = "Source Sans 3"
+mono = "CaskaydiaCove Nerd Font Mono"
+
+[assets]
+logo      = "logo.svg"
+wallpaper = "wallpaper_sway.jpg"
+
+[desktop.sway]
+title       = "Sway"
+description = "Mosaico clásico compatible con i3: ligero, estable y muy configurable."
+screenshot  = "desktop/sway.png"
+wallpaper   = "wallpaper_sway.jpg"
+
+[desktop.niri]
+title       = "Niri"
+description = "Ventanas en una cinta infinita con desplazamiento: moderno y fluido."
+screenshot  = "desktop/niri.svg"
+wallpaper   = "wallpaper_niri.jpg"
+
+[[slides]]
+image   = "slides/slide-01.png"
+title   = "Emancipation-OS"
+text    = "Libertad, soberanía digital y alto rendimiento artesanal. Sin componentes inflados y sin telemetría."
+seconds = 8
+
+[[slides]]
+image   = "slides/slide-02.png"
+title   = "Sway o Niri: dos mundos Wayland"
+text    = "Mosaico clásico compatible con i3, o desplazamiento infinito moderno. Ambos quedan instalados."
+seconds = 8
+
+[[slides]]
+image   = "slides/slide-03.png"
+title   = "Emancipation-Shell"
+text    = "Shell propio con barra superior, lanzador rápido y panel de control, y recarga instantánea de la configuración TOML."
+seconds = 8
+
+[[slides]]
+image   = "slides/slide-04.png"
+title   = "Tu sistema, tus reglas"
+text    = "Libre de systemd: OpenRC y BusyBox, forjado desde Linux From Scratch, con btrfs y el gestor de paquetes Yarmouth."
+seconds = 8
+
+[[slides]]
+image   = "slides/slide-05.png"
+title   = "¡Todo listo para emanciparse!"
+text    = "Retira el medio de instalación cuando el sistema te lo indique. Código fuente: https://github.com/johandavid77/Emancipation-OS"
+seconds = 8
+
+[strings.es]
+welcome_title  = "Bienvenido a Emancipation-OS"
+welcome_body   = "Vamos a instalar tu sistema en unos minutos."
+desktop_title  = "Elige tu escritorio"
+desktop_body   = "Los dos quedan instalados; puedes cambiar al otro al iniciar sesión."
+summary_title  = "Resumen"
+progress_title = "Instalando"
+finish_title   = "Todo listo"
+finish_body    = "Reinicia para empezar a usar tu sistema."
+
+[strings.en]
+welcome_title = "Welcome to Emancipation-OS"
