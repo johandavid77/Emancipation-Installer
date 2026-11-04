@@ -51,8 +51,9 @@ func (e *CmdError) Unwrap() error { return e.Err }
 // nivel info. Fuerza LC_ALL=C para que la salida sea siempre la misma.
 type ExecRunner struct {
 	Log       Logger
-	Env       []string // variables extra, además del entorno actual
-	TailLines int      // líneas finales que se conservan para el error (defecto 20)
+	Env       []string                // variables extra, además del entorno actual
+	TailLines int                     // líneas finales que se conservan para el error (defecto 20)
+	OnLine    func(step, line string) // opcional: recibe cada línea de salida (para el progreso)
 }
 
 func (r *ExecRunner) Run(step string, c Cmd) error {
@@ -70,6 +71,9 @@ func (r *ExecRunner) Run(step string, c Cmd) error {
 	w := &lineWriter{emit: func(s string) {
 		r.Log.Log("debug", step, s)
 		tail.add(s)
+		if r.OnLine != nil {
+			r.OnLine(step, s)
+		}
 	}}
 
 	cmd := exec.Command(c.Args[0], c.Args[1:]...)
